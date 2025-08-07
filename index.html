@@ -1,28 +1,57 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Critical Save Studio</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <h1>🎮 Critical Save Studio</h1>
+  <header class="header">
+    <div class="logo">Critical Save Studio</div>
+    <nav class="nav">
+      <ul>
+        <li><a href="#home">Главная</a></li>
+        <li><a href="#about">О студии</a></li>
+        <li><a href="#team">Команда</a></li>
+        <li><a href="#projects">Проекты</a></li>
+        <li><a href="#join">Присоединиться</a></li>
+        <li><a href="#contact">Контакты</a></li>
+        <li><button id="lang-toggle">EN</button></li>
+        <li>
+          <select id="theme-select">
+            <option value="light">Светлая</option>
+            <option value="dark">Тёмная</option>
+            <option value="neon">Неон</option>
+          </select>
+        </li>
+      </ul>
+    </nav>
+    <div class="hamburger" id="hamburger">☰</div>
+  </header>
 
-  <section>
-    <h2>О нас</h2>
-    <p>Мы — независимая игровая студия, создающая миры, в которые хочется нырнуть с головой. Объединяем художников, разработчиков и сценаристов в одной команде.</p>
-  </section>
+  <main>
+    <section id="home" class="fade">Добро пожаловать в Critical Save Studio</section>
+    <section id="about" class="fade">О нашей студии...</section>
+    <section id="team" class="fade">Наша команда...</section>
+    <section id="projects" class="fade">Пока без проектов. Stay tuned!</section>
+    <section id="join" class="fade">
+      <h2>Присоединиться к команде</h2>
+      <form id="join-form">
+        <input type="text" name="name" placeholder="Ваше имя" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <textarea name="message" placeholder="Почему хотите присоединиться?" required></textarea>
+        <button type="submit">Отправить</button>
+      </form>
+    </section>
+    <section id="contact" class="fade">
+      <h2>Контакты</h2>
+      <p>Email: contact@criticalsave.studio</p>
+      <p>Telegram: @CriticalSave</p>
+    </section>
+  </main>
 
-  <section>
-    <h2>Как присоединиться</h2>
-    <p>Ищем энтузиастов, которые хотят творить вместе. Присоединяйся в Discord для общения и идей, а в Telegram следи за обновлениями.</p>
-    <a href="https://discord.gg/YaSbCStH7q">🗨️ Войти в Discord</a><br>
-    <a href="https://t.me/+NC8UGnirW81lOWUy">📨 Подписаться в Telegram</a>
-  </section>
-
-  <section>
-    <h2>Контакты</h2>
-    <p>Будем рады обратной связи и предложениям. Напиши нам в любой соцсети!</p>
-  </section>
+  <button id="scrollTop">↑</button>
 </body>
 </html>
