@@ -1,24 +1,196 @@
+/* --- Общие стили --- */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--header-bg);
+  padding: 0.5rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a,
+nav ul li button,
+nav ul li select {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li button:hover,
+nav ul li select:hover {
+  color: var(--accent);
+}
+
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
 section {
-  background-color: #1e1e1e;
-  margin: 20px auto;
-  padding: 20px;
-  max-width: 600px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+  margin-bottom: 3rem;
 }
 
 h2 {
-  color: #ffcc00;
-  margin-bottom: 10px;
+  margin-top: 0;
 }
 
-p {
-  font-size: 16px;
-  line-height: 1.5;
+input, textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0.3rem 0 1rem;
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  background: var(--input-bg);
+  color: var(--text);
+  resize: vertical;
+  font-size: 1rem;
+  transition: border-color 0.3s;
 }
 
-a {
-  display: inline-block;
-  margin: 10px 0;
-  font-size: 16px;
+input:focus, textarea:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+button[type="submit"] {
+  background-color: var(--accent);
+  border: none;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--accent-hover);
+}
+
+#scrollTop {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
+  z-index: 999;
+}
+
+/* --- Fade-in анимация --- */
+.fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Адаптивность и гамбургер --- */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    background: var(--header-bg);
+    position: fixed;
+    top: 60px;
+    right: -100%;
+    width: 200px;
+    height: calc(100% - 60px);
+    padding-top: 1rem;
+    transition: right 0.3s ease-in-out;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+  }
+  
+  nav ul.open {
+    right: 0;
+  }
+  
+  .hamburger {
+    display: block;
+  }
+}
+
+/* --- Темы --- */
+:root {
+  --bg: #fff;
+  --text: #111;
+  --accent: #007acc;
+  --accent-hover: #005f99;
+  --header-bg: #f8f8f8;
+  --input-bg: #fff;
+  --input-border: #ccc;
+}
+
+/* Тёмная тема */
+body.dark {
+  --bg: #121212;
+  --text: #eee;
+  --accent: #1e90ff;
+  --accent-hover: #5599ff;
+  --header-bg: #1f1f1f;
+  --input-bg: #222;
+  --input-border: #555;
+}
+
+/* Неоновая тема */
+body.neon {
+  --bg: #000;
+  --text: #39ff14;
+  --accent: #0ff;
+  --accent-hover: #0bb;
+  --header-bg: #050505;
+  --input-bg: #111;
+  --input-border: #39ff14;
 }
